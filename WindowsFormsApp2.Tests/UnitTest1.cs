@@ -13,7 +13,7 @@ namespace WindowsFormsApp2.Tests
             double a=5, b = 8;
             double expected = a+b;
             Form1 f = new Form1();
-            double actual = f.addition(a,b);
+            double actual = f.Addition(a,b);
             Assert.AreEqual(expected, actual,"fail");
         }
         [TestMethod]
@@ -22,7 +22,7 @@ namespace WindowsFormsApp2.Tests
             double a = 5, b = 8;
             double expected = a-b;
             Form1 f = new Form1();
-            double actual = f.subtraction(a, b);
+            double actual = f.Subtraction(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
         [TestMethod]
@@ -31,7 +31,7 @@ namespace WindowsFormsApp2.Tests
             double a = 5, b = 8;
             double expected = a*b;
             Form1 f = new Form1();
-            double actual = f.multiplication(a, b);
+            double actual = f.Multiplication(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
         [TestMethod]
@@ -40,7 +40,7 @@ namespace WindowsFormsApp2.Tests
             double a = 10, b = 8;
             double expected = a/b;
             Form1 f = new Form1();
-            double actual = f.division(a, b);
+            double actual = f.Division(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
     }

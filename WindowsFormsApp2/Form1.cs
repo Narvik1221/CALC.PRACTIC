@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2
@@ -24,21 +17,30 @@ namespace WindowsFormsApp2
         {
 
         }
-        public double addition(double a, double b)
+        public double Addition(double a, double b)
         {
             return a + b;
         }
-        public double subtraction(double a, double b)
+        public double Subtraction(double a, double b)
         {
             return a - b;
         }
-        public double division(double a, double b)
+        public double Division(double a, double b)
         {
             return a / b;
         }
-        public double multiplication(double a, double b)
+
+        public double Multiplication(double a, double b)
         {
             return a * b;
+        }
+        public double FuncPow(double a, double b=2)
+        {
+            return Math.Pow(a, b); 
+        }
+        public double FuncSqrt(double a)
+        {
+            return Math.Sqrt(a);
         }
         private void Form1_Click(object sender, EventArgs e)
         {
@@ -76,19 +78,19 @@ namespace WindowsFormsApp2
             dn2 = Convert.ToDouble(textBox1.Text);
             if (D == "+")
             {
-                res=addition(dn1,dn2);
+                res=Addition(dn1,dn2);
             }
             else if (D == "-")
             {
-                res = subtraction(dn1, dn2);
+                res = Subtraction(dn1, dn2);
             }
             else if (D == "*")
             {
-                res = multiplication(dn1, dn2);
+                res = Multiplication(dn1, dn2);
             }
             else if (D == "/")
             {
-                res = division(dn1, dn2);
+                res = Division(dn1, dn2);
             }
             else if (D == "Xcp.")
             {
@@ -96,7 +98,7 @@ namespace WindowsFormsApp2
             }
             else if (D == "x^y")
             {
-                res = Math.Pow(dn1, dn2);
+                res = FuncPow(dn1,dn2);
             }
 
             D = "=";
@@ -107,25 +109,25 @@ namespace WindowsFormsApp2
         private void button22_Click(object sender, EventArgs e)
         {
             double dn, res;
-            res = 0;
+            
             dn = Convert.ToDouble(textBox1.Text);
-            res = Math.Sqrt(dn);
+            res = FuncSqrt(dn);
             textBox1.Text = res.ToString();
         }
 
         private void Form1_Click_4(object sender, EventArgs e)
         {
             double dn, res;
-            res = 0;
+            
             dn = Convert.ToDouble(textBox1.Text);
-            res = Math.Pow(dn,2);
+            res =FuncPow(dn);
             textBox1.Text = res.ToString();
         }
 
         private void button24_Click(object sender, EventArgs e)
         {
             double dn, res;
-            res = 0;
+            
             dn = Convert.ToDouble(textBox1.Text);
             res = 1/dn;
             textBox1.Text = res.ToString();
@@ -134,7 +136,7 @@ namespace WindowsFormsApp2
         private void button19_Click(object sender, EventArgs e)
         {
             double dn, res;
-            res = 0;
+            
             dn = Convert.ToDouble(textBox1.Text);
             res = Math.Cos(dn);
             textBox1.Text = res.ToString();
@@ -143,7 +145,7 @@ namespace WindowsFormsApp2
         private void button16_Click(object sender, EventArgs e)
         {
             double dn, res;
-            res = 0;
+           
             dn = Convert.ToDouble(textBox1.Text);
            
             res = Math.Log(dn);
