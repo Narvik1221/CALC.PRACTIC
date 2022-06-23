@@ -215,12 +215,13 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(289, 293);
+            this.button16.Location = new System.Drawing.Point(289, 336);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(75, 37);
             this.button16.TabIndex = 16;
-            this.button16.Text = "button16";
+            this.button16.Text = "ln(x)";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button17
             // 
@@ -248,12 +249,13 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(75, 37);
             this.button19.TabIndex = 19;
-            this.button19.Text = "button19";
+            this.button19.Text = "cos(x)";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(289, 336);
+            this.button20.Location = new System.Drawing.Point(289, 293);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(75, 37);
             this.button20.TabIndex = 20;
@@ -277,8 +279,9 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(75, 37);
             this.button22.TabIndex = 22;
-            this.button22.Text = "x^y";
+            this.button22.Text = "sqrt";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button23
             // 
@@ -286,8 +289,9 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(75, 37);
             this.button23.TabIndex = 23;
-            this.button23.Text = "x^y";
+            this.button23.Text = "x^2";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.Form1_Click_4);
             // 
             // button24
             // 
@@ -295,8 +299,9 @@
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(75, 37);
             this.button24.TabIndex = 24;
-            this.button24.Text = "x^y";
+            this.button24.Text = "1/x";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // Form1
             // 
@@ -331,7 +336,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Click += new System.EventHandler(this.Form1_Click_2);
+            this.Click += new System.EventHandler(this.Form1_Click_4);
             this.ResumeLayout(false);
             this.PerformLayout();
 

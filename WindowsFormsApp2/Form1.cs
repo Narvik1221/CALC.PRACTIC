@@ -88,5 +88,51 @@ namespace WindowsFormsApp2
             n2 = true;
             textBox1.Text = res.ToString();
         }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+            res = 0;
+            dn = Convert.ToDouble(textBox1.Text);
+            res = Math.Sqrt(dn);
+            textBox1.Text = res.ToString();
+        }
+
+        private void Form1_Click_4(object sender, EventArgs e)
+        {
+            double dn, res;
+            res = 0;
+            dn = Convert.ToDouble(textBox1.Text);
+            res = Math.Pow(dn,2);
+            textBox1.Text = res.ToString();
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+            res = 0;
+            dn = Convert.ToDouble(textBox1.Text);
+            res = 1/dn;
+            textBox1.Text = res.ToString();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+            res = 0;
+            dn = Convert.ToDouble(textBox1.Text);
+            res = Math.Cos(dn);
+            textBox1.Text = res.ToString();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+            res = 0;
+            dn = Convert.ToDouble(textBox1.Text);
+            res = Math.Log(dn);
+            textBox1.Text = res.ToString();
+
+        }
     }
 }
