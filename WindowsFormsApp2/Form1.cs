@@ -56,6 +56,7 @@ namespace WindowsFormsApp2
         {
             double dn1, dn2, res;
             res = 0;
+
             dn1 = Convert.ToDouble(N1);
             dn2 = Convert.ToDouble(textBox1.Text);
             if (D == "+")
