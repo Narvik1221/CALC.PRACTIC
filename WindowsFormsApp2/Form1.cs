@@ -24,7 +24,22 @@ namespace WindowsFormsApp2
         {
 
         }
-
+        public double addition(double a, double b)
+        {
+            return a + b;
+        }
+        public double subtraction(double a, double b)
+        {
+            return a - b;
+        }
+        public double division(double a, double b)
+        {
+            return a / b;
+        }
+        public double multiplication(double a, double b)
+        {
+            return a * b;
+        }
         private void Form1_Click(object sender, EventArgs e)
         {
             if (n2)
@@ -61,19 +76,19 @@ namespace WindowsFormsApp2
             dn2 = Convert.ToDouble(textBox1.Text);
             if (D == "+")
             {
-                res = dn1 + dn2;
+                res=addition(dn1,dn2);
             }
             else if (D == "-")
             {
-                res = dn1 - dn2;
+                res = subtraction(dn1, dn2);
             }
             else if (D == "*")
             {
-                res = dn1 * dn2;
+                res = multiplication(dn1, dn2);
             }
             else if (D == "/")
             {
-                res = dn1 / dn2;
+                res = division(dn1, dn2);
             }
             else if (D == "Xcp.")
             {
@@ -130,9 +145,11 @@ namespace WindowsFormsApp2
             double dn, res;
             res = 0;
             dn = Convert.ToDouble(textBox1.Text);
+           
             res = Math.Log(dn);
             textBox1.Text = res.ToString();
 
         }
+        
     }
 }
