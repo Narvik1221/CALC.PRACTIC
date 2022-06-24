@@ -29,6 +29,10 @@ namespace WindowsFormsApp2
         {
             return a / b;
         }
+        public double DivisionOne(double a)
+        {
+            return (1 / a);
+        }
 
         public double Multiplication(double a, double b)
         {
@@ -38,10 +42,45 @@ namespace WindowsFormsApp2
         {
             return Math.Pow(a, b); 
         }
+
         public double FuncSqrt(double a)
         {
             return Math.Sqrt(a);
         }
+
+        public double FuncSqrtn(double a, double b)
+        {
+            return Math.Pow(a, (1 / b));
+        }
+
+        public double FuncTan(double a)
+        {
+            return Math.Tan(a);
+        }
+
+        public double FuncAtan(double a)
+        {
+            return Math.Atan(a);
+        }
+
+        public double FuncSin(double a)
+        {
+            return Math.Sin(a);
+        }
+        public double FuncLog(double a)
+        {
+            return Math.Log(a);
+        }
+        public double FuncCos(double a)
+        {
+            return Math.Cos(a);
+        }
+
+        public double SredZnach(double a,double b)
+        {
+            return (a + b) / 2;
+        }
+
         private void Form1_Click(object sender, EventArgs e)
         {
             if (n2)
@@ -94,11 +133,16 @@ namespace WindowsFormsApp2
             }
             else if (D == "Xcp.")
             {
-                res = (dn1 + dn2) / 2;
+                res = SredZnach(dn1,dn2);
             }
             else if (D == "x^y")
             {
                 res = FuncPow(dn1,dn2);
+            }
+            else if (D == "x^(1/y)")
+            {
+                
+                res = FuncSqrtn(dn1,dn2);
             }
 
             D = "=";
@@ -129,16 +173,15 @@ namespace WindowsFormsApp2
             double dn, res;
             
             dn = Convert.ToDouble(textBox1.Text);
-            res = 1/dn;
+            res = DivisionOne(dn);
             textBox1.Text = res.ToString();
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
             double dn, res;
-            
             dn = Convert.ToDouble(textBox1.Text);
-            res = Math.Cos(dn);
+            res = FuncCos(dn);
             textBox1.Text = res.ToString();
         }
 
@@ -148,10 +191,57 @@ namespace WindowsFormsApp2
            
             dn = Convert.ToDouble(textBox1.Text);
            
-            res = Math.Log(dn);
+            res = FuncLog(dn);
             textBox1.Text = res.ToString();
 
         }
-        
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+
+            dn = Convert.ToDouble(textBox1.Text);
+
+            res = FuncSin(dn);
+            textBox1.Text = res.ToString();
+
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+
+            dn = Convert.ToDouble(textBox1.Text);
+
+            res =FuncTan(dn);
+            textBox1.Text = res.ToString();
+
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            Button B = (Button)sender;
+            D = B.Text;
+            N1 = textBox1.Text;
+            n2 = true;
+
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            double dn, res;
+
+            dn = Convert.ToDouble(textBox1.Text);
+
+
+            res = FuncAtan(dn);
+            textBox1.Text = res.ToString();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
