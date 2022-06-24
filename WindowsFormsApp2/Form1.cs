@@ -8,6 +8,7 @@ namespace WindowsFormsApp2
         public string D;
         public string N1;
         public bool n2;
+        public Class1 MathClass = new Class1();
         public Form1()
         {
             InitializeComponent();
@@ -17,70 +18,7 @@ namespace WindowsFormsApp2
         {
 
         }
-        public double Addition(double a, double b)
-        {
-            return a + b;
-        }
-        public double Subtraction(double a, double b)
-        {
-            return a - b;
-        }
-        public double Division(double a, double b)
-        {
-            return a / b;
-        }
-        public double DivisionOne(double a)
-        {
-            return (1 / a);
-        }
-
-        public double Multiplication(double a, double b)
-        {
-            return a * b;
-        }
-        public double FuncPow(double a, double b=2)
-        {
-            return Math.Pow(a, b); 
-        }
-
-        public double FuncSqrt(double a)
-        {
-            return Math.Sqrt(a);
-        }
-
-        public double FuncSqrtn(double a, double b)
-        {
-            return Math.Pow(a, (1 / b));
-        }
-
-        public double FuncTan(double a)
-        {
-            return Math.Tan(a);
-        }
-
-        public double FuncAtan(double a)
-        {
-            return Math.Atan(a);
-        }
-
-        public double FuncSin(double a)
-        {
-            return Math.Sin(a);
-        }
-        public double FuncLog(double a)
-        {
-            return Math.Log(a);
-        }
-        public double FuncCos(double a)
-        {
-            return Math.Cos(a);
-        }
-
-        public double SredZnach(double a,double b)
-        {
-            return (a + b) / 2;
-        }
-
+        
         private void Form1_Click(object sender, EventArgs e)
         {
             if (n2)
@@ -117,32 +55,32 @@ namespace WindowsFormsApp2
             dn2 = Convert.ToDouble(textBox1.Text);
             if (D == "+")
             {
-                res=Addition(dn1,dn2);
+                res= MathClass.Addition(dn1,dn2);
             }
             else if (D == "-")
             {
-                res = Subtraction(dn1, dn2);
+                res = MathClass.Subtraction(dn1, dn2);
             }
             else if (D == "*")
             {
-                res = Multiplication(dn1, dn2);
+                res = MathClass.Multiplication(dn1, dn2);
             }
             else if (D == "/")
             {
-                res = Division(dn1, dn2);
+                res = MathClass.Division(dn1, dn2);
             }
             else if (D == "Xcp.")
             {
-                res = SredZnach(dn1,dn2);
+                res = MathClass.SredZnach(dn1,dn2);
             }
             else if (D == "x^y")
             {
-                res = FuncPow(dn1,dn2);
+                res = MathClass.FuncPow(dn1,dn2);
             }
             else if (D == "x^(1/y)")
             {
                 
-                res = FuncSqrtn(dn1,dn2);
+                res = MathClass.FuncSqrtn(dn1,dn2);
             }
 
             D = "=";
@@ -155,7 +93,7 @@ namespace WindowsFormsApp2
             double dn, res;
             
             dn = Convert.ToDouble(textBox1.Text);
-            res = FuncSqrt(dn);
+            res = MathClass.FuncSqrt(dn);
             textBox1.Text = res.ToString();
         }
 
@@ -164,7 +102,7 @@ namespace WindowsFormsApp2
             double dn, res;
             
             dn = Convert.ToDouble(textBox1.Text);
-            res =FuncPow(dn);
+            res = MathClass.FuncPow(dn);
             textBox1.Text = res.ToString();
         }
 
@@ -173,7 +111,7 @@ namespace WindowsFormsApp2
             double dn, res;
             
             dn = Convert.ToDouble(textBox1.Text);
-            res = DivisionOne(dn);
+            res = MathClass.DivisionOne(dn);
             textBox1.Text = res.ToString();
         }
 
@@ -181,7 +119,7 @@ namespace WindowsFormsApp2
         {
             double dn, res;
             dn = Convert.ToDouble(textBox1.Text);
-            res = FuncCos(dn);
+            res = MathClass.FuncCos(dn);
             textBox1.Text = res.ToString();
         }
 
@@ -191,7 +129,7 @@ namespace WindowsFormsApp2
            
             dn = Convert.ToDouble(textBox1.Text);
            
-            res = FuncLog(dn);
+            res = MathClass.FuncLog(dn);
             textBox1.Text = res.ToString();
 
         }
@@ -202,7 +140,7 @@ namespace WindowsFormsApp2
 
             dn = Convert.ToDouble(textBox1.Text);
 
-            res = FuncSin(dn);
+            res = MathClass.FuncSin(dn);
             textBox1.Text = res.ToString();
 
         }
@@ -213,7 +151,7 @@ namespace WindowsFormsApp2
 
             dn = Convert.ToDouble(textBox1.Text);
 
-            res =FuncTan(dn);
+            res = MathClass.FuncTan(dn);
             textBox1.Text = res.ToString();
 
         }
@@ -234,7 +172,7 @@ namespace WindowsFormsApp2
             dn = Convert.ToDouble(textBox1.Text);
 
 
-            res = FuncAtan(dn);
+            res = MathClass.FuncAtan(dn);
             textBox1.Text = res.ToString();
 
         }

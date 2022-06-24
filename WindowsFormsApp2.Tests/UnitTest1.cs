@@ -13,7 +13,7 @@ namespace WindowsFormsApp2.Tests
             double a=5, b = 8;
             double expected = a+b;
             Form1 f = new Form1();
-            double actual = f.Addition(a,b);
+            double actual = f.MathClass.Addition(a,b);
             Assert.AreEqual(expected, actual,"fail");
         }
         [TestMethod]
@@ -22,7 +22,7 @@ namespace WindowsFormsApp2.Tests
             double a = 5, b = 8;
             double expected = a-b;
             Form1 f = new Form1();
-            double actual = f.Subtraction(a, b);
+            double actual = f.MathClass.Subtraction(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
         [TestMethod]
@@ -31,7 +31,7 @@ namespace WindowsFormsApp2.Tests
             double a = 5, b = 8;
             double expected = a*b;
             Form1 f = new Form1();
-            double actual = f.Multiplication(a, b);
+            double actual = f.MathClass.Multiplication(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
         [TestMethod]
@@ -40,7 +40,7 @@ namespace WindowsFormsApp2.Tests
             double a = 10, b = 8;
             double expected = a/b;
             Form1 f = new Form1();
-            double actual = f.Division(a, b);
+            double actual = f.MathClass.Division(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
         [TestMethod]
@@ -49,7 +49,7 @@ namespace WindowsFormsApp2.Tests
             double a = 27, b = 3;
             double expected = Math.Pow(a, (1 / b));
             Form1 f = new Form1();
-            double actual = f.FuncSqrtn(a, b);
+            double actual = f.MathClass.FuncSqrtn(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -59,7 +59,7 @@ namespace WindowsFormsApp2.Tests
             double a = 5;
             double expected = 1/a;
             Form1 f = new Form1();
-            double actual = f.DivisionOne(a);
+            double actual = f.MathClass.DivisionOne(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -69,7 +69,7 @@ namespace WindowsFormsApp2.Tests
             double a = 5, b = 2;
             double expected = Math.Pow(a, b);
             Form1 f = new Form1();
-            double actual = f.FuncPow(a, b);
+            double actual = f.MathClass.FuncPow(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -79,7 +79,7 @@ namespace WindowsFormsApp2.Tests
             double a = 81;
             double expected = Math.Sqrt(a);
             Form1 f = new Form1();
-            double actual = f.FuncSqrt(a);
+            double actual = f.MathClass.FuncSqrt(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -89,7 +89,7 @@ namespace WindowsFormsApp2.Tests
             double a = 50;
             double expected = Math.Tan(a);
             Form1 f = new Form1();
-            double actual = f.FuncTan(a);
+            double actual = f.MathClass.FuncTan(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -99,7 +99,7 @@ namespace WindowsFormsApp2.Tests
             double a = 50;
             double expected = Math.Atan(a);
             Form1 f = new Form1();
-            double actual = f.FuncAtan(a);
+            double actual = f.MathClass.FuncAtan(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -109,7 +109,7 @@ namespace WindowsFormsApp2.Tests
             double a = 50;
             double expected = Math.Sin(a);
             Form1 f = new Form1();
-            double actual = f.FuncSin(a);
+            double actual = f.MathClass.FuncSin(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -119,7 +119,7 @@ namespace WindowsFormsApp2.Tests
             double a = 50;
             double expected = Math.Log(a);
             Form1 f = new Form1();
-            double actual = f.FuncLog(a);
+            double actual = f.MathClass.FuncLog(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -129,7 +129,7 @@ namespace WindowsFormsApp2.Tests
             double a = 25;
             double expected = Math.Cos(a);
             Form1 f = new Form1();
-            double actual = f.FuncCos(a);
+            double actual = f.MathClass.FuncCos(a);
             Assert.AreEqual(expected, actual, "fail");
         }
 
@@ -139,7 +139,7 @@ namespace WindowsFormsApp2.Tests
             double a = 27, b = 13;
             double expected = (a + b) / 2;
             Form1 f = new Form1();
-            double actual = f.SredZnach(a, b);
+            double actual = f.MathClass.SredZnach(a, b);
             Assert.AreEqual(expected, actual, "fail");
         }
     }
