@@ -24,15 +24,40 @@ namespace WindowsFormsApp2
         public interface ITwoArgumentsCalculator
         {
             double Calculate(double argumentOne, double argumentTwo);
+            
 
         }
+        
+
         public class SubtractionCalculator : ITwoArgumentsCalculator
         {
-            public double Calculate(double firstArg, double secondArg) => firstArg + secondArg;
+            public double Calculate(double firstArg, double secondArg) => firstArg - secondArg;
 
         }
+        public class ZeroCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => 0;
 
+        }
+        static class TwoArgFactory
+        {
 
+            internal static ITwoArgumentsCalculator CreateCalculator(string Calc_name)
+            {
+
+                if (Calc_name == "substract") {
+
+                    return new SubtractionCalculator();
+
+                }
+                else
+                {
+                    return new ZeroCalculator();
+                }
+                
+                
+            }
+        }
 
 
 
@@ -135,6 +160,7 @@ namespace WindowsFormsApp2
         private void Form1_Click_3(object sender, EventArgs e)
         {
             double dn1, dn2, res;
+            string Calc_name;
             res = 0;
 
             dn1 = Convert.ToDouble(N1);
@@ -145,10 +171,9 @@ namespace WindowsFormsApp2
             }
             else if (D == "-")
             {
-              
-                ITwoArgumentsCalculator calculator = new SubtractionCalculator();
-                res=calculator.Calculate(dn1,dn2);
-
+                Calc_name = "substract";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
 
             }
             else if (D == "*")
