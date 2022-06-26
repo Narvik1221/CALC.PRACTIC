@@ -17,6 +17,30 @@ namespace WindowsFormsApp2
         {
 
         }
+
+
+
+
+        public interface ITwoArgumentsCalculator
+        {
+            double Calculate(double argumentOne, double argumentTwo);
+
+        }
+        public class SubtractionCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => firstArg + secondArg;
+
+        }
+
+
+
+
+
+
+
+
+
+
         public double Addition(double a, double b)
         {
             return a + b;
@@ -117,11 +141,15 @@ namespace WindowsFormsApp2
             dn2 = Convert.ToDouble(textBox1.Text);
             if (D == "+")
             {
-                res=Addition(dn1,dn2);
+                res = Addition(dn1,dn2);
             }
             else if (D == "-")
             {
-                res = Subtraction(dn1, dn2);
+              
+                ITwoArgumentsCalculator calculator = new SubtractionCalculator();
+                res=calculator.Calculate(dn1,dn2);
+
+
             }
             else if (D == "*")
             {
