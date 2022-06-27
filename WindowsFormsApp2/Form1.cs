@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2
+   
 {
     public partial class Form1 : Form
     {
@@ -10,6 +11,7 @@ namespace WindowsFormsApp2
         public bool n2;
         public Form1()
         {
+            
             InitializeComponent();
         }
 
@@ -19,228 +21,7 @@ namespace WindowsFormsApp2
         }
 
 
-        /// Интерфейсы
-
-        public interface ITwoArgumentsCalculator
-        {
-            double Calculate(double argumentOne, double argumentTwo);
-            
-
-        }
-
-        public interface IOneArgumentsCalculator
-        {
-            double Calculate(double argumentOne);
-
-
-        }
-
-        ///Конец  Интерфейсов
-
-
-        ///Калькуляторы
-        
-        /// 2 аргументов
-        public class SubtractionCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => firstArg - secondArg;
-
-        }
-
-        public class AdditionalCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => firstArg + secondArg;
-
-        }
-
-        public class DivisionCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => (firstArg / secondArg);
-
-        }
-
-        public class MultiplicationCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => (firstArg * secondArg);
-
-        }
-
-        public class SredCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => (firstArg + secondArg) / 2;
-
-        }
-
-        public class PowCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => Math.Pow(firstArg, secondArg);
-
-        }
-        public class AntiPowCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => Math.Pow(firstArg, (1 / secondArg));
-
-        }
-        public class ZeroCalculator : ITwoArgumentsCalculator
-        {
-            public double Calculate(double firstArg, double secondArg) => 0;
-
-        }
-
-
-        /// 1 аргумента
-        public class CosCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Cos(firstArg);
-
-        }
-        public class LnCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Log(firstArg);
-
-        }
-        public class SqrtCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Sqrt(firstArg);
-
-        }
-        public class PowTwoCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Pow(firstArg,2);
-
-        }
-        public class OneDivisCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => (1/firstArg);
-
-        }
-        public class ATanCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Atan(firstArg);
-
-        }
-        public class TanCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Tan(firstArg);
-
-        }
-        public class SinCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => Math.Sin(firstArg);
-
-        }
-        public class ZeroOneCalculator : IOneArgumentsCalculator
-        {
-            public double Calculate(double firstArg) => 0;
-
-        }
-        ///Конец калькуляторов
-
-
-
-        ///Фабрики
-        static class TwoArgFactory
-        {
-
-            internal static ITwoArgumentsCalculator CreateCalculator(string Calc_name)
-            {
-
-                if (Calc_name == "substract") {
-
-                    return new SubtractionCalculator();
-
-                }
-                else if (Calc_name == "Multiplic")
-                {
-                    return new MultiplicationCalculator();
-                }
-                else if (Calc_name == "Division")
-                {
-                    return new DivisionCalculator();
-                }
-                else if (Calc_name == "Addition")
-                {
-                    return new AdditionalCalculator();
-                }
-                else if (Calc_name == "Pow")
-                {
-                    return new PowCalculator();
-                }
-                else if (Calc_name == "AntiPow")
-                {
-                    return new AntiPowCalculator();
-                }
-                else if (Calc_name == "Sred")
-                {
-                    return new SredCalculator();
-                }
-                else
-                {
-                    return new ZeroCalculator();
-                }
-                
-                
-            }
-        }
-
-
-        static class OneArgFactory
-        {
-
-            internal static IOneArgumentsCalculator CreateCalculator(string Calc_name)
-            {
-
-                if (Calc_name == "Cos")
-                {
-
-                    return new CosCalculator();
-
-                }
-                else if (Calc_name == "Ln")
-                {
-                    return new LnCalculator();
-                }
-                else if (Calc_name == "Sqrt")
-                {
-                    return new SqrtCalculator();
-                }
-                else if (Calc_name == "Pow2")
-                {
-                    return new PowTwoCalculator();
-                }
-                else if (Calc_name == "OneDiv")
-                {
-                    return new OneDivisCalculator();
-                }
-                else if (Calc_name == "ATan")
-                {
-                    return new ATanCalculator();
-                }
-                else if (Calc_name == "Tan")
-                {
-                    return new TanCalculator();
-                }
-                else if (Calc_name == "Sin")
-                {
-                    return new SinCalculator();
-                }
-                else
-                {
-                    return new ZeroOneCalculator();
-                }
-
-
-            }
-        }
-
-        ///Конец фабрик
-
-
-
-
-
-
-
+        /// лишний код
         public double Addition(double a, double b)
         {
             return a + b;
@@ -304,6 +85,10 @@ namespace WindowsFormsApp2
         {
             return (a + b) / 2;
         }
+        /// конец лишний код
+
+
+
 
         private void Form1_Click(object sender, EventArgs e)
         {
@@ -427,8 +212,9 @@ namespace WindowsFormsApp2
             IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Cos");
             res = calculator.Calculate(dn);
             textBox1.Text = res.ToString();
+            
         }
-
+        ///
         private void button16_Click(object sender, EventArgs e)
         {
             double dn, res;
