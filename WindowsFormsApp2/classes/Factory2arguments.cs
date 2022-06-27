@@ -55,7 +55,7 @@ namespace WindowsFormsApp2
     public static class TwoArgFactory
     {
 
-        internal static ITwoArgumentsCalculator CreateCalculator(string Calc_name)
+        public static ITwoArgumentsCalculator CreateCalculator(string Calc_name)
         {
 
             if (Calc_name == "substract")
