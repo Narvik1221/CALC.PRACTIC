@@ -17,9 +17,17 @@ namespace WindowsFormsApp2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            textBox1.Text = "0";
         }
-
+        bool StringIsDigits(string s)
+        {
+            foreach (var item in s)
+            {
+                if (!char.IsDigit(item))
+                    return false; //если хоть один символ не число, то выкидываешь "ложь"
+            }
+            return true; //если ни разу не выбило в цикле, значит, все символы - это цифры
+        }
 
         /// лишний код
         public double Addition(double a, double b)
@@ -123,128 +131,181 @@ namespace WindowsFormsApp2
             string Calc_name;
             res = 0;
 
-            dn1 = Convert.ToDouble(N1);
-            dn2 = Convert.ToDouble(textBox1.Text);
-            if (D == "+")
+            
+            if (StringIsDigits(N1) && StringIsDigits(textBox1.Text))
             {
-                Calc_name = "Addition";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
-            }
-            else if (D == "-")
-            {
-                Calc_name = "substract";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
+                dn1 = Convert.ToDouble(N1);
+                dn2 = Convert.ToDouble(textBox1.Text);
 
-            }
-            else if (D == "*")
-            {
-                Calc_name = "Multiplic";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
-            }
-            else if (D == "/")
-            {
-                Calc_name = "Division";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
-            }
-            else if (D == "Xcp.")
-            {
-                Calc_name = "Sred";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
-            }
-            else if (D == "x^y")
-            {
-                Calc_name = "Pow";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
-            }
-            else if (D == "x^(1/y)")
-            {
+                if (D == "+")
+                {
+                    Calc_name = "Addition";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
+                }
+                else if (D == "-")
+                {
+                    Calc_name = "substract";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
 
-                Calc_name = "AntiPow";
-                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                res = calculator.Calculate(dn1, dn2);
+                }
+                else if (D == "*")
+                {
+                    Calc_name = "Multiplic";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
+                }
+                else if (D == "/")
+                {
+                    Calc_name = "Division";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
+                }
+                else if (D == "Xcp.")
+                {
+                    Calc_name = "Sred";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
+                }
+                else if (D == "x^y")
+                {
+                    Calc_name = "Pow";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
+                }
+                else if (D == "x^(1/y)")
+                {
+
+                    Calc_name = "AntiPow";
+                    ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                    res = calculator.Calculate(dn1, dn2);
+                }
+                D = "=";
+                n2 = true;
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
             }
 
-            D = "=";
-            n2 = true;
-            textBox1.Text = res.ToString();
+          
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
             double dn, res;
-            
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Sqrt");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Sqrt");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
+
         }
 
         private void Form1_Click_4(object sender, EventArgs e)
         {
             double dn, res;
-            
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Pow2");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Pow2");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
         }
 
         private void button24_Click(object sender, EventArgs e)
         {
             double dn, res;
-            
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("OneDiv");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("OneDiv");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
             double dn, res;
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Cos");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Cos");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else {
+                textBox1.Text = "ошибка ввода";
+                    }
             
         }
         ///
         private void button16_Click(object sender, EventArgs e)
         {
             double dn, res;
-           
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Ln");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Ln");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
 
         }
 
         private void button25_Click(object sender, EventArgs e)
         {
             double dn, res;
-
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Sin");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
-
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Sin");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
         }
 
         private void button27_Click(object sender, EventArgs e)
         {
             double dn, res;
-
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Tan");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Tan");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
 
         }
 
@@ -260,17 +321,29 @@ namespace WindowsFormsApp2
         private void button28_Click(object sender, EventArgs e)
         {
             double dn, res;
-
-            dn = Convert.ToDouble(textBox1.Text);
-            IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("ATan");
-            res = calculator.Calculate(dn);
-            textBox1.Text = res.ToString();
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("ATan");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
 
         }
-
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+      
+            
+               
 
+            textBox1.Text = textBox1.Text.Replace(',', '.'); /// Постоянно заменяет в текстбоксе , на .
+
+            
         }
     }
 }
