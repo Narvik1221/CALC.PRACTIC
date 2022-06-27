@@ -19,7 +19,7 @@ namespace WindowsFormsApp2
         }
 
 
-
+        /// Интерфейсы
 
         public interface ITwoArgumentsCalculator
         {
@@ -27,18 +27,63 @@ namespace WindowsFormsApp2
             
 
         }
+        ///Конец  Интерфейсов
         
 
+        ///Калькуляторы
         public class SubtractionCalculator : ITwoArgumentsCalculator
         {
             public double Calculate(double firstArg, double secondArg) => firstArg - secondArg;
 
         }
+
+        public class AdditionalCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => firstArg + secondArg;
+
+        }
+
+        public class DivisionCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => (firstArg / secondArg);
+
+        }
+
+        public class MultiplicationCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => (firstArg * secondArg);
+
+        }
+
+        public class SredCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => (firstArg + secondArg) / 2;
+
+        }
+
+        public class PowCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => Math.Pow(firstArg, secondArg);
+
+        }
+        public class AntiPowCalculator : ITwoArgumentsCalculator
+        {
+            public double Calculate(double firstArg, double secondArg) => Math.Pow(firstArg, (1 / secondArg));
+
+        }
+
+
         public class ZeroCalculator : ITwoArgumentsCalculator
         {
             public double Calculate(double firstArg, double secondArg) => 0;
 
         }
+
+
+      
+        ///Конец калькуляторов
+        
+        ///Фабрики
         static class TwoArgFactory
         {
 
@@ -50,6 +95,30 @@ namespace WindowsFormsApp2
                     return new SubtractionCalculator();
 
                 }
+                else if (Calc_name == "Multiplic")
+                {
+                    return new MultiplicationCalculator();
+                }
+                else if (Calc_name == "Division")
+                {
+                    return new DivisionCalculator();
+                }
+                else if (Calc_name == "Addition")
+                {
+                    return new AdditionalCalculator();
+                }
+                else if (Calc_name == "Pow")
+                {
+                    return new PowCalculator();
+                }
+                else if (Calc_name == "AntiPow")
+                {
+                    return new AntiPowCalculator();
+                }
+                else if (Calc_name == "Sred")
+                {
+                    return new SredCalculator();
+                }
                 else
                 {
                     return new ZeroCalculator();
@@ -59,6 +128,7 @@ namespace WindowsFormsApp2
             }
         }
 
+        ///Конец фабрик
 
 
 
@@ -167,7 +237,9 @@ namespace WindowsFormsApp2
             dn2 = Convert.ToDouble(textBox1.Text);
             if (D == "+")
             {
-                res = Addition(dn1,dn2);
+                Calc_name = "Addition";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
             }
             else if (D == "-")
             {
@@ -178,24 +250,34 @@ namespace WindowsFormsApp2
             }
             else if (D == "*")
             {
-                res = Multiplication(dn1, dn2);
+                Calc_name = "Multiplic";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
             }
             else if (D == "/")
             {
-                res = Division(dn1, dn2);
+                Calc_name = "Division";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
             }
             else if (D == "Xcp.")
             {
-                res = SredZnach(dn1,dn2);
+                Calc_name = "Sred";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
             }
             else if (D == "x^y")
             {
-                res = FuncPow(dn1,dn2);
+                Calc_name = "Pow";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
             }
             else if (D == "x^(1/y)")
             {
-                
-                res = FuncSqrtn(dn1,dn2);
+
+                Calc_name = "AntiPow";
+                ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
+                res = calculator.Calculate(dn1, dn2);
             }
 
             D = "=";
