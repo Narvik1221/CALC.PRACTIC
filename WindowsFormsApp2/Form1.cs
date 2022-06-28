@@ -40,6 +40,7 @@ namespace WindowsFormsApp2
             {
                 n2 = false;
                 textBox1.Text = "0";
+
             }
             Button B = (Button)sender;
             if (textBox1.Text == "0")
@@ -70,8 +71,11 @@ namespace WindowsFormsApp2
             
             if (StringIsDigits(N1) && StringIsDigits(textBox1.Text))
             {
-                dn1 = Convert.ToDouble(N1);
-                dn2 = Convert.ToDouble(textBox1.Text);
+               
+                    dn1 = Convert.ToDouble(N1);
+                    dn2 = Convert.ToDouble(textBox1.Text);
+                
+              
 
                 if (D == "+")
                 {
@@ -94,9 +98,26 @@ namespace WindowsFormsApp2
                 }
                 else if (D == "/")
                 {
+                    
                     Calc_name = "Division";
                     ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
-                    res = calculator.Calculate(dn1, dn2);
+                    try
+                    {
+                        res = calculator.Calculate(dn1, dn2);
+                        if (dn2==0)
+                        {
+                            throw new Exception("Деление на 0");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Ошибка: {ex.Message}");
+                    }
+                    finally
+                    {
+                        res = 0;
+                    }
+                    
                 }
                 else if (D == "Xcp.")
                 {
@@ -151,10 +172,31 @@ namespace WindowsFormsApp2
             double dn, res;
             if (StringIsDigits(textBox1.Text))
             {
-                dn = Convert.ToDouble(textBox1.Text);
-                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Pow2");
-                res = calculator.Calculate(dn);
-                textBox1.Text = res.ToString();
+                try
+                {   
+                    if (textBox1.Text=="")
+                    {
+                        throw new Exception("Отсутствует значение");
+                    }
+                    dn = Convert.ToDouble(textBox1.Text);
+                    
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ошибка: {ex.Message}");
+                }
+                finally
+                {
+                    dn = 0;
+                    IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Pow2");
+                    res = calculator.Calculate(dn);
+                    textBox1.Text = res.ToString();
+                }
+
+
+
+                
             }
 
             else

@@ -1,7 +1,7 @@
 ﻿
 using NUnit.Framework;
 using System;
-// чтобы работало в управлениях пакетами NuGet (пкм по решению проекта) нужно установить NunitTestAdapter
+// чтобы работало в управлениях пакетами NuGet ()
 namespace WindowsFormsApp2.Tests
 {
     [TestFixture]
