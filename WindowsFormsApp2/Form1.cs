@@ -9,31 +9,47 @@ namespace WindowsFormsApp2
         public string D;
         public string N1;
         public bool n2;
+        /// <summary>
+        /// базовый метод для поддержки конструктора
+        /// </summary>
         public Form1()
         {
             
             InitializeComponent();
         }
-
+        /// <summary>
+        /// метод, присваивающий 0 в дисплей калькулятора
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox1.Text = "0";
         }
+        /// <summary>
+        /// метод, реализующий проверку типов данных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         bool StringIsDigits(string s)
         {
             foreach (var item in s)
             {
                 if (!char.IsDigit(item))
-                    return false; //если хоть один символ не число, то выкидываешь "ложь"
+                    return false; 
             }
-            return true; //если ни разу не выбило в цикле, значит, все символы - это цифры
+            return true; 
         }
 
-    
 
 
 
 
+        /// <summary>
+        /// нопка, реализующая набор цифер 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Click(object sender, EventArgs e)
         {
             if (n2)
@@ -48,12 +64,20 @@ namespace WindowsFormsApp2
             else
                 textBox1.Text = textBox1.Text + B.Text;
         }
-
+        /// <summary>
+        /// кнопка, реализующая очистку textBox'а
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Click_1(object sender, EventArgs e)
         {
             textBox1.Text = "0";
         }
-
+        /// <summary>
+        /// кнопка, выполняющая арифметические операции (+,-,*,/)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Click_2(object sender, EventArgs e)
         {
             Button B = (Button)sender;
@@ -61,7 +85,11 @@ namespace WindowsFormsApp2
             N1 = textBox1.Text;
             n2 = true;
         }
-
+        /// <summary>
+        /// нопка, реализующая знак '=' для двух аргументов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Click_3(object sender, EventArgs e)
         {
             double dn1, dn2, res;
@@ -100,6 +128,7 @@ namespace WindowsFormsApp2
                 {
                     
                     Calc_name = "Division";
+
                     ITwoArgumentsCalculator calculator = TwoArgFactory.CreateCalculator(Calc_name);
                     try
                     {
@@ -149,7 +178,11 @@ namespace WindowsFormsApp2
 
           
         }
-
+        /// <summary>
+        /// нопка, реализующая взятие корня
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button22_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -166,10 +199,14 @@ namespace WindowsFormsApp2
             }
 
         }
-
+        /// <summary>
+        /// кнопка обрабатывающая исключение при пустом textBox'е
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Click_4(object sender, EventArgs e)
         {
-            double dn, res;
+            double dn, res=0;
             if (StringIsDigits(textBox1.Text))
             {
                 try
@@ -189,8 +226,7 @@ namespace WindowsFormsApp2
                 finally
                 {
                     dn = 0;
-                    IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Pow2");
-                    res = calculator.Calculate(dn);
+                   
                     textBox1.Text = res.ToString();
                 }
 
@@ -204,7 +240,11 @@ namespace WindowsFormsApp2
                 textBox1.Text = "ошибка ввода";
             }
         }
-
+        /// <summary>
+        /// Кнопка, реализующая возведение в (-1)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button24_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -220,7 +260,11 @@ namespace WindowsFormsApp2
                 textBox1.Text = "ошибка ввода";
             }
         }
-
+        /// <summary>
+        /// Кнопка, реализующая взятие косинуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button19_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -236,7 +280,11 @@ namespace WindowsFormsApp2
                     }
             
         }
-        ///
+        /// <summary>
+        /// Кнопка, реализующая взятие логарифма
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button16_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -253,7 +301,11 @@ namespace WindowsFormsApp2
             }
 
         }
-
+        /// <summary>
+        /// Кнопка, реализующая взятие синуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button25_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -269,7 +321,11 @@ namespace WindowsFormsApp2
                 textBox1.Text = "ошибка ввода";
             }
         }
-
+        /// <summary>
+        /// Кнопка, реализующая взятие косинуса
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button27_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -286,7 +342,11 @@ namespace WindowsFormsApp2
             }
 
         }
-
+        /// <summary>
+        /// Кнопка, реализующая взятие кореня N-ой степени
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button26_Click(object sender, EventArgs e)
         {
             Button B = (Button)sender;
@@ -295,7 +355,11 @@ namespace WindowsFormsApp2
             n2 = true;
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button28_Click(object sender, EventArgs e)
         {
             double dn, res;
@@ -312,7 +376,27 @@ namespace WindowsFormsApp2
             }
 
         }
-        
+
+        private void button23_Click_1(object sender, EventArgs e)
+        {
+            double dn, res;
+            if (StringIsDigits(textBox1.Text))
+            {
+                dn = Convert.ToDouble(textBox1.Text);
+                IOneArgumentsCalculator calculator = OneArgFactory.CreateCalculator("Pow2");
+                res = calculator.Calculate(dn);
+                textBox1.Text = res.ToString();
+            }
+            else
+            {
+                textBox1.Text = "ошибка ввода";
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
       
@@ -323,5 +407,9 @@ namespace WindowsFormsApp2
 
             
         }
+
+      
+
+        
     }
 }
