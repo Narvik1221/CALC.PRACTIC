@@ -10,14 +10,30 @@
 {
  <input type="number" name="firstNumber" value="0"/>
  <input type="number" name="secondNumber" value="0"/>
- <select name="operation">
- @for (int i = 0; i < ViewBag.Operation.Length; i++)
+ <select name="operation2arg">
+ @for (int i = 0; i < ViewBag.Operation2arg.Length; i++)
  {
- <option value="@ViewBag.Operation[i].Value">
- @ViewBag.Operation[i].Text
+ <option value="@ViewBag.Operation2arg[i].Value">
+ @ViewBag.Operation2arg[i].Text
  </option>
  }
+
  </select>
+ <select name="operation1arg">
+ @for (int i = 0; i < ViewBag.Operation1arg.Length; i++)
+ {
+ <option value="@ViewBag.Operation1arg[i].Value">
+ @ViewBag.Operation1arg[i].Text
+ </option>
+ }
+
+ </select>
+
+
+
+
+
  <input type="submit" value="вычислить"/>
- <p>@ViewBag.Result</p>
+ <p>2 аргумента: @ViewBag.Result</p>
+ <p>1 аргумент:@ViewBag.Result1</p>
 }

@@ -18,15 +18,34 @@ namespace WebCalc.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Operation = new SelectListItem[]{
+            
+        
+                ViewBag.Operation1arg = new SelectListItem[]{
+                new SelectListItem() { Value = "None", Text ="Функция 1 аргумента" },
+                new SelectListItem() { Value = "Ln", Text ="Натуральный логарифм" },
+                new SelectListItem() { Value = "Sqrt", Text ="Корень квадратная" },
+                new SelectListItem() { Value = "Pow2", Text ="Квадрат числа" },
+                new SelectListItem() { Value = "OneDiv", Text ="1/число" },
+                new SelectListItem() { Value = "ATan", Text ="Atan" },
+                new SelectListItem() { Value = "Tan", Text ="Тангенс" },
+                new SelectListItem() { Value = "Sin", Text ="Синус" },
+                new SelectListItem() { Value = "Cos", Text ="Косинус" }
+
+
+        };
+                ViewBag.Operation2arg = new SelectListItem[]{
+            new SelectListItem() { Value = "None", Text ="Функция 2 аргументов" },
             new SelectListItem() { Value = "Multiplic", Text ="Умножение" },
            new SelectListItem() { Value = "Addition", Text ="Сложение" },
             new SelectListItem() { Value = "substract", Text ="Разность" },
-            new SelectListItem() { Value = "Division", Text ="Деление" }
-        };
+            new SelectListItem() { Value = "Division", Text ="Деление" },
+            new SelectListItem() { Value = "Pow", Text ="Возведение в степень" },
+            new SelectListItem() { Value = "Sred", Text ="Среднее значение" },
+            new SelectListItem() { Value = "AntiPow", Text ="Корень n степени" }
+            };
 
 
-            return View();
+                return View();
         }
 
 
@@ -35,22 +54,47 @@ namespace WebCalc.Controllers
     public ActionResult Index(
         double firstNumber,
         double secondNumber,
-        string operation)
+        string operation2arg, string operation1arg)
         {
-        ITwoArgumentsCalculator calculator =
-        TwoArgFactory.CreateCalculator(operation);
-        double result = calculator.Calculate(firstNumber, secondNumber);
-         ViewBag.Result = result;
+            ViewBag.Operation1arg = new SelectListItem[]{
+                new SelectListItem() { Value = "None", Text ="Функция 1 аргумента" },
+                new SelectListItem() { Value = "Ln", Text ="Натуральный логарифм" },
+                new SelectListItem() { Value = "Sqrt", Text ="Корень квадратная" },
+                new SelectListItem() { Value = "Pow2", Text ="Квадрат числа" },
+                new SelectListItem() { Value = "OneDiv", Text ="1/число" },
+                new SelectListItem() { Value = "ATan", Text ="Atan" },
+                new SelectListItem() { Value = "Tan", Text ="Тангенс" },
+                new SelectListItem() { Value = "Sin", Text ="Синус" },
+                new SelectListItem() { Value = "Cos", Text ="Косинус" }
 
-         ViewBag.Operation = new SelectListItem[]{
+
+        };
+            ViewBag.Operation2arg = new SelectListItem[]{
+            new SelectListItem() { Value = "None", Text ="Функция 2 аргументов" },
             new SelectListItem() { Value = "Multiplic", Text ="Умножение" },
            new SelectListItem() { Value = "Addition", Text ="Сложение" },
             new SelectListItem() { Value = "substract", Text ="Разность" },
-            new SelectListItem() { Value = "Division", Text ="Деление" }
-        };
+            new SelectListItem() { Value = "Division", Text ="Деление" },
+            new SelectListItem() { Value = "Pow", Text ="Возведение в степень" },
+            new SelectListItem() { Value = "Sred", Text ="Среднее значение" },
+            new SelectListItem() { Value = "AntiPow", Text ="Корень n степени" }
+            };
+        ITwoArgumentsCalculator calculator2 =
+        TwoArgFactory.CreateCalculator(operation2arg);
+        IOneArgumentsCalculator calculator1 =
+        OneArgFactory.CreateCalculator(operation1arg);
+         
+            
+            double result = calculator2.Calculate(firstNumber, secondNumber);
+            double result1 = calculator1.Calculate(firstNumber);
 
 
-        return View();
+            ViewBag.Result = result;
+            ViewBag.Result1 = result1;
+
+
+
+            return View();
     }
 
         public IActionResult Privacy()

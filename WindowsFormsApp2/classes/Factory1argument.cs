@@ -86,14 +86,14 @@ namespace WindowsFormsApp2 {
     /// <summary>
     /// фабрика, реализующая классы 
     /// </summary>
-    static class OneArgFactory
+    public static class OneArgFactory
     {
         /// <summary>
         /// создание классов в фабрике
         /// </summary>
         /// <param name="Calc_name"></param>
         /// <returns></returns>
-        internal static IOneArgumentsCalculator CreateCalculator(string Calc_name)
+        public static IOneArgumentsCalculator CreateCalculator(string Calc_name)
         {
 
             if (Calc_name == "Cos")
