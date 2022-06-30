@@ -95,46 +95,29 @@ namespace WindowsFormsApp2 {
         /// <returns></returns>
         public static IOneArgumentsCalculator CreateCalculator(string Calc_name)
         {
+            switch (Calc_name)
+            {
+                case "Cos":
+                    return new CosCalculator();
+                case "Ln":
+                    return new LnCalculator();
+                case "Sqrt":
+                    return new SqrtCalculator();
+                case "Pow2":
+                    return new PowTwoCalculator();
+                case "OneDiv":
+                    return new OneDivisCalculator();
+                case "ATan":
+                    return new ATanCalculator();
+                case "Tan":
+                    return new TanCalculator();
+                case "Sin":
+                    return new SinCalculator();
+                default:
+                    return new ZeroOneCalculator();
 
-            if (Calc_name == "Cos")
-            {
-
-                return new CosCalculator();
 
             }
-            else if (Calc_name == "Ln")
-            {
-                return new LnCalculator();
-            }
-            else if (Calc_name == "Sqrt")
-            {
-                return new SqrtCalculator();
-            }
-            else if (Calc_name == "Pow2")
-            {
-                return new PowTwoCalculator();
-            }
-            else if (Calc_name == "OneDiv")
-            {
-                return new OneDivisCalculator();
-            }
-            else if (Calc_name == "ATan")
-            {
-                return new ATanCalculator();
-            }
-            else if (Calc_name == "Tan")
-            {
-                return new TanCalculator();
-            }
-            else if (Calc_name == "Sin")
-            {
-                return new SinCalculator();
-            }
-            else
-            {
-                return new ZeroOneCalculator();
-            }
-
 
         }
     }

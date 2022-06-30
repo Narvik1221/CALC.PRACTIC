@@ -79,42 +79,28 @@ namespace WindowsFormsApp2
 
         public static ITwoArgumentsCalculator CreateCalculator(string Calc_name)
         {
-
-            if (Calc_name == "substract")
+            switch (Calc_name)
             {
-
-                return new SubtractionCalculator();
-
-            }
-            else if (Calc_name == "Multiplic")
-            {
-                return new MultiplicationCalculator();
-            }
-            else if (Calc_name == "Division")
-            {
-                return new DivisionCalculator();
-            }
-            else if (Calc_name == "Addition")
-            {
-                return new AdditionalCalculator();
-            }
-            else if (Calc_name == "Pow")
-            {
-                return new PowCalculator();
-            }
-            else if (Calc_name == "AntiPow")
-            {
-                return new AntiPowCalculator();
-            }
-            else if (Calc_name == "Sred")
-            {
-                return new SredCalculator();
-            }
-            else
-            {
-                return new ZeroCalculator();
+                case "substract":
+                    return new SubtractionCalculator();
+                case "Multiplic":
+                    return new MultiplicationCalculator();
+                case "Division":
+                    return new DivisionCalculator();
+                case "Addition":
+                    return new AdditionalCalculator();
+                case "Pow":
+                    return new PowCalculator();
+                case "AntiPow":
+                    return new AntiPowCalculator();
+                case "Sred":
+                    return new SredCalculator();
+                default:
+                    return new ZeroCalculator();
             }
 
+            
+            
 
         }
     }
